@@ -324,8 +324,8 @@ router.get(
         include: [
           [
             Sequelize.literal(
-              `(SELECT AVG("airbnb_api_db_schema"."Reviews".stars) FROM "airbnb_api_db_schema"."Reviews"
-              WHERE "airbnb_api_db_schema"."Reviews"."spotId" = "Spot"."id")`
+              `(SELECT AVG("Reviews".stars) FROM "Reviews"
+              WHERE "Reviews"."spotId" = "Spot"."id")`
             ),
             "avgRating",
           ],
@@ -416,16 +416,16 @@ router.get("/:spotId", async (req, res) => {
       include: [
         [
           Sequelize.literal(
-            `(SELECT AVG("airbnb_api_db_schema"."Reviews".stars) FROM "airbnb_api_db_schema"."Reviews"
-              WHERE "airbnb_api_db_schema"."Reviews"."spotId" = "Spot"."id")`
+            `(SELECT AVG("Reviews".stars) FROM "Reviews"
+              WHERE "Reviews"."spotId" = "Spot"."id")`
           ),
           "avgRating",
         ],
 
         [
           Sequelize.literal(
-            `(SELECT COUNT("airbnb_api_db_schema"."Reviews".stars) FROM "airbnb_api_db_schema"."Reviews" 
-             WHERE "airbnb_api_db_schema"."Reviews"."spotId" = "Spot"."id")`
+            `(SELECT COUNT("Reviews".stars) FROM "Reviews"
+             WHERE "Reviews"."spotId" = "Spot"."id")`
           ),
           "numReviews",
         ],
@@ -506,7 +506,6 @@ router.get("/", async (req, res) => {
 
   const errors = {};
 
-  
   if (page) {
     page = parseInt(page);
     if (isNaN(page) || page < 1) {
@@ -516,7 +515,6 @@ router.get("/", async (req, res) => {
     page = 1;
   }
 
-
   if (size) {
     size = parseInt(size);
     if (isNaN(size) || size < 1) {
@@ -525,7 +523,6 @@ router.get("/", async (req, res) => {
   } else {
     size = 20;
   }
-
 
   if (maxLat && isNaN(maxLat)) {
     errors.maxLat = "Maximum latitude is invalid";
@@ -567,14 +564,13 @@ router.get("/", async (req, res) => {
   };
 
   try {
-
     let spots = await Spot.findAll({
       attributes: {
         include: [
           [
             Sequelize.literal(
-              `(SELECT AVG("airbnb_api_db_schema"."Reviews".stars) FROM "airbnb_api_db_schema"."Reviews"
-               WHERE "airbnb_api_db_schema"."Reviews"."spotId" = "Spot"."id")`
+              `(SELECT AVG("Reviews".stars) FROM "Reviews"
+               WHERE "Reviews"."spotId" = "Spot"."id")`
             ),
             "avgRating",
           ],
@@ -609,7 +605,6 @@ router.get("/", async (req, res) => {
           spot.SpotImages.length > 0 ? spot.SpotImages[0].url : null,
       };
     });
-
 
     res.status(200).json({ Spots: finalSpots, page, size });
   } catch (error) {
