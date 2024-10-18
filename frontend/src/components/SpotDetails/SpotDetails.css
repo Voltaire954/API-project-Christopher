@@ -1,0 +1,55 @@
+/* SpotDetails.css */
+.spot-details {
+    padding: 20px;
+  }
+
+  .spot-details h1 {
+    font-size: 2rem;
+    margin-bottom: 10px;
+  }
+
+  .spot-details p {
+    margin: 10px 0;
+  }
+
+  .spot-images {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 20px;
+  }
+
+  .large-image {
+    width: 60%;
+    height: auto;
+  }
+
+  .small-images {
+    display: flex;
+    gap: 10px;
+  }
+
+  .small-image {
+    width: 20%;
+    height: auto;
+  }
+
+  .callout-box {
+    background-color: #f9f9f9;
+    padding: 15px;
+    border: 1px solid #ccc;
+    margin-top: 20px;
+  }
+
+  .callout-box p {
+    font-size: 1.5rem;
+    font-weight: bold;
+    margin-bottom: 10px;
+  }
+
+  .callout-box button {
+    background-color: #007BFF;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    cursor: pointer;
+  }
