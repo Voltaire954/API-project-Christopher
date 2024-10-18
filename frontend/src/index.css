@@ -1,1 +1,71 @@
 /* TODO: Add sitewide styles */
+DOCTYPE body {
+    font-family: 'Arial', sans-serif;
+    /* Or Google Font specified */
+    margin: 0;
+    padding: 0;
+    background-color: #f5f5f5;
+    /* Adjust color as per the wireframe */
+}
+
+.container {
+    max-width: 1000px;
+    /* Constrains max-width for main container */
+    margin: 0 auto;
+    padding: 20px;
+}
+
+a {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    text-decoration: none;
+    color: inherit;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: baseline;
+    /* Ensure links match text color unless hovered */
+}
+
+img {
+    display: flex;
+    justify-content: flex-end;
+    max-height: 20rem;
+    max-width: 20rem;
+    display: block;
+    border: solid .1px;
+    border-radius: 2rem;
+}
+
+button {
+    cursor: pointer;
+    background-color: #ff5a5f;
+    /* Button color similar to Airbnb's */
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+}
+
+button:hover {
+    background-color: #ff7675;
+}
+
+.spot-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    /* Responsive columns */
+    gap: 20px;
+    /* Space between grid items */
+    padding: 20px;
+    align-items: end;
+}
+.price{
+    display: flex;
+}
+
+.reviews{
+    display: flex;
+
+}

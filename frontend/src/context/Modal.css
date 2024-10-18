@@ -1,24 +1,75 @@
 #modal {
-    position: fixed;
-    top: 0;
-    right: 0;
-    left: 0;
-    bottom: 0;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
+  position: fixed;
+  top: 0;
+  right: 0;
+  left: 0;
+  bottom: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
 
-  #modal-background {
-    position: fixed;
-    top: 0;
-    right: 0;
-    left: 0;
-    bottom: 0;
-    background-color: rgba(0, 0, 0, 0.7);
-  }
+#modal-background {
+  position: fixed;
+  top: 0;
+  right: 0;
+  left: 0;
+  bottom: 0;
+  background-color: rgba(119, 119, 119, 0.7);
+}
 
-  #modal-content {
-    position: absolute;
-    background-color: white;
-  }
+#modal-content {
+  display: flex;
+  width: 400px;
+  /* Set width */
+  height: 400px;
+  /* Set height to the same value */
+  background-color: #fff;
+  /* Background color for the modal */
+  border-radius: 10px;
+  /* Optional: Rounded corners */
+  padding: 20px;
+  /* Optional: Internal padding */
+
+}
+
+button[disabled] {
+  background-color: #ccc;
+  cursor: not-allowed;
+}
+
+button {
+  background-color: #ff5a5f;
+  color: white;
+  padding: 10px 15px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  margin-top: 10rem;
+  margin-right: 3rem;
+}
+
+.error {
+  color: red;
+  margin-top: 5px;
+}
+
+form {
+  display: flex;
+  height: 7rem;
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-content: stretch;
+  align-items: center;
+  justify-content: flex-start;
+  height: 7rem;
+  margin-top: 10rem;
+}
+
+.Log-in {
+  height: 2rem;
+}
+
+.label {
+  height: 2rem;
+}

@@ -1,19 +1,21 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import * as sessionActions from "../../store/session";
 import { useDispatch } from "react-redux";
 import { useModal } from "../../context/Modal";
-import "/home/christopher/API-project-Christopher/frontend/src/components/LoginFormModal/LoginFormModal.css";
+import "./LoginFormModal.css"; // Updated relative path
 
 function LoginFormModal() {
   const dispatch = useDispatch();
-  const [credential, setCredential] = useState("");
-  const [password, setPassword] = useState("");
-  const [errors, setErrors] = useState({});
+  const [credential, setCredential] = useState(""); // Username or Email
+  const [password, setPassword] = useState(""); // Password
+  const [errors, setErrors] = useState({}); // Errors
+  const [isButtonDisabled, setIsButtonDisabled] = useState(true); // Disable button initially
   const { closeModal } = useModal();
 
+  // Handle form submission
   const handleSubmit = (e) => {
     e.preventDefault();
-    setErrors({});
+    setErrors({}); // Clear previous errors
     return dispatch(sessionActions.login({ credential, password }))
       .then(closeModal)
       .catch(async (res) => {
@@ -24,30 +26,46 @@ function LoginFormModal() {
       });
   };
 
+  // Disable the Log In button unless credential and password meet length requirements
+  useEffect(() => {
+    if (credential.length >= 4 && password.length >= 6) {
+      setIsButtonDisabled(false);
+    } else {
+      setIsButtonDisabled(true);
+    }
+  }, [credential, password]); // Runs whenever credential or password changes
+
   return (
     <>
       <h1>Log In</h1>
       <form onSubmit={handleSubmit}>
         <label>
-          Username or Email
+
           <input
             type="text"
             value={credential}
             onChange={(e) => setCredential(e.target.value)}
             required
+            placeholder="Username or Email"
           />
         </label>
         <label>
-          Password
+
           <input
             type="password"
             value={password}
             onChange={(e) => setPassword(e.target.value)}
             required
+            placeholder="Password"
           />
+        {/* Log In button will be disabled until conditions are met */}
+        <button type="submit" className="Log-in" disabled={isButtonDisabled}>
+          Log In
+        </button>
         </label>
-        {errors.credential && <p>{errors.credential}</p>}
-        <button type="submit">Log In</button>
+        {/* Display error messages if present */}
+        {errors.credential && <p className="error">{errors.credential}</p>}
+
       </form>
     </>
   );

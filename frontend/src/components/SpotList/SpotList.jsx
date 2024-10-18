@@ -3,7 +3,7 @@ import React, { useEffect, useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { NavLink } from "react-router-dom"; // Import NavLink for navigation
 import { fetchSpots } from "/home/christopher/API-project-Christopher/frontend/src/store/spots.js";
-
+import "./SpotList";
 function SpotList() {
   const dispatch = useDispatch();
   const spots = useSelector((state) => state.spots.list);
@@ -57,11 +57,16 @@ function SpotList() {
             >
               <img src={imageSrc} alt={name} className="thumbnail" />
               <h3>{name}</h3>
+
+                <p>{reviewsInfo}</p> {/* Display rating and review count */}
+
               <p>
                 {city}, {state}
               </p>
-              <p>{reviewsInfo}</p> {/* Display rating and review count */}
+              <div className="price">
+
               <p>${price.toFixed(2)} / night</p>
+              </div>
             </NavLink>
           );
         })
