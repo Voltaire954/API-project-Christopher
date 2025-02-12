@@ -9,14 +9,6 @@
   align-items: center;
 }
 
-#modal-background {
-  position: fixed;
-  top: 0;
-  right: 0;
-  left: 0;
-  bottom: 0;
-  background-color: rgba(119, 119, 119, 0.7);
-}
 
 #modal-content {
   display: flex;
@@ -24,11 +16,11 @@
   /* Set width */
   height: 400px;
   /* Set height to the same value */
-  background-color: #fff;
+  background-color: #f5f2f2;
   /* Background color for the modal */
-  border-radius: 10px;
+
   /* Optional: Rounded corners */
-  padding: 20px;
+
   /* Optional: Internal padding */
 
 }
@@ -45,7 +37,6 @@ button {
   border: none;
   border-radius: 5px;
   cursor: pointer;
-  margin-top: 10rem;
   margin-right: 3rem;
 }
 
@@ -67,9 +58,30 @@ form {
 }
 
 .Log-in {
+  display: flex;
+  width: 20rem;
   height: 2rem;
+  box-shadow: 3px 3px 10px black;
+  border: solid 3px black;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  align-items: baseline;
 }
 
-.label {
-  height: 2rem;
+label {
+  width: 20rem;
+
+}
+
+input {
+  width: 17rem;
+}
+
+h1{
+  display: flex;
+
+}
+.Log-in-text{
+  display: flex;
 }

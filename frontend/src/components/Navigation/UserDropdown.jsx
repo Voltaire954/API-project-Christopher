@@ -1,10 +1,10 @@
 // src/components/Navigation/UserDropdown.jsx (example)
-import { Link } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 
 function UserDropdown() {
   return (
     <div className="user-dropdown">
-      <Link to="/spots/manage">Manage Spots</Link>
+      <NavLink to="/spots/manage">Manage Spots</NavLink>
       {/* Other dropdown items */}
     </div>
   );

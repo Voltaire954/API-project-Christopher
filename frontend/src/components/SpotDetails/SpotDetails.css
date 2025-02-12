@@ -54,6 +54,7 @@ body {
 /* Callout Box */
 .callout-box {
   display: flex;
+  flex-wrap: wrap;
   justify-content: flex-end;
   align-items: flex-end;
   border: 3px solid #030303;
@@ -85,6 +86,7 @@ body {
 
 .callout-box button {
   display: flex;
+  flex-wrap: wrap;
   justify-content: center;
   background-color: #ff5a5f;
   border: solid black;

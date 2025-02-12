@@ -37,8 +37,8 @@ function LoginFormModal() {
 
   return (
     <>
-      <h1>Log In</h1>
       <form onSubmit={handleSubmit}>
+      <h1 className="Log-in-text">Log In</h1>
         <label>
 
           <input
@@ -64,7 +64,7 @@ function LoginFormModal() {
         </button>
         </label>
         {/* Display error messages if present */}
-        {errors.credential && <p className="error">{errors.credential}</p>}
+        {errors.credential && <p className="error">error reciving credentials</p>}
 
       </form>
     </>
